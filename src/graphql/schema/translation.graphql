@@ -1,0 +1,37 @@
+enum Locale {
+	CZ
+	SK
+	EN
+}
+
+input GetAllStaticTranslationsInput {
+	locale: Locale!
+}
+
+type TranslationPackPart {
+	locale: Locale!
+	translation: String!
+}
+
+# Check if all langs were provided
+input CreateStaticTranslationInput {
+  uidPath: String!
+  translations: [TranslationPackPart!]!
+}
+
+type Translation {
+	uidPath: String!
+	translation: String!
+}
+
+type TranslationQueries {
+	getAllStaticTranslations(
+		input: GetAllStaticTranslationsInput!
+	): [Translation!]! @juniper(ownership: "owned")
+}
+
+type TranslationMutations {
+	CreateStaticTranslation(
+		input: CreateStaticTranslationInput!
+	): Error @juniper(ownership: "owned")
+}

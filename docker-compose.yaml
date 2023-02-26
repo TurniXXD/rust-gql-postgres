@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  postgres:
+    container_name: horal_server_db_test
+    image: postgres
+    environment:
+      - POSTGRES_USER=horal
+      - POSTGRES_PASSWORD=horal
+      - POSTGRES_DB=horal_server
+      - POSTGRES_HOST_AUTH_METHOD=password
+    ports:
+      - "5244:5432"
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql

@@ -1,0 +1,4 @@
+type User {
+  id: ID! @juniper(ownership: "owned")
+  translation: String!
+}

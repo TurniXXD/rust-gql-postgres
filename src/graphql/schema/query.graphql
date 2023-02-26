@@ -1,0 +1,10 @@
+type Query {
+	users: [User!]! @juniper(ownership: "owned")
+	posts: [Post!]! @juniper(ownership: "owned")
+	userById(id: Int!): User! @juniper(ownership: "owned")
+	postById(id: Int!): Post! @juniper(ownership: "owned")
+	#translations: TranslationQueries!
+	getAllStaticTranslations(
+		input: GetAllStaticTranslationsInput!
+	): [Translation!]! @juniper(ownership: "owned")
+}

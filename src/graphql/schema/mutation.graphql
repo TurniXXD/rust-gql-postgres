@@ -1,0 +1,15 @@
+type Mutation {
+  createUser(
+    translation: String!,
+  ): User! @juniper(ownership: "owned")
+
+  createPost(
+    userId: Int!,
+    title: String!,
+    body: String
+  ): Post! @juniper(ownership: "owned")
+
+  deletePost(
+    postId: Int!
+  ): Int! @juniper(ownership: "owned")
+}

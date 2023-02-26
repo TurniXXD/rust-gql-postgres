@@ -1,0 +1,9 @@
+type Post {
+  id: ID! @juniper(ownership: "owned")
+  userId: ID! @juniper(ownership: "owned")
+  title: String!
+  body: String
+  createdAt: DateTimeUtc!
+}
+
+scalar DateTimeUtc
